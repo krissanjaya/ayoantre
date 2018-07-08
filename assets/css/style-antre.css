@@ -1,0 +1,103 @@
+/*start section category_antre*/
+section#category_antre{
+    background: linear-gradient(to bottom, #fff, #fff);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+section#category_antre .header-title {
+    text-align: center;
+    margin-top: 30px;
+}
+
+section#category_antre .header-title h2 {
+    font-family: 'Sacramento',cursive;
+    font-weight: bold; 
+    color: #222222;
+}
+
+section#category_antre .header-title p {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #222222;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+section#category_antre .row-kategori {
+    /*max-width: 1100px;*/
+    margin-right: auto;
+    margin-left: auto;
+    /*background-color: #000;*/
+}
+
+section#category_antre .item-kategori {
+	height: 100%;
+	box-shadow: -.5px -.5px 0 .5px #ccc, inset -1px -1px 0 0 #ccc;
+   	text-align: center;
+   	margin: 2px;
+   	word-wrap: break-word; overflow-y:auto;
+   	border-radius: 10px;
+   	padding: 10px;
+    background-color: #fff;
+}
+
+section#category_antre .item-kategori h3 {
+	padding-top: 20px;
+   font-family: 'Viga', sans-serif;
+    font-weight: bold; 
+    color: #444545;
+}
+
+section#category_antre .item-kategori p {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #666666;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.btn-kategori {
+	margin-right: auto;
+    margin-left: auto;
+	display: block;
+    width: 100%;
+	border:1px solid;
+	border-color: #ccc;
+    border-radius: 10px;
+    color: #222;
+    width: 200px;
+    font-family: 'Varela', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 11px;
+    padding: 10px 10px;
+}
+
+.btn-outline-kategori:hover, .btn-outline-kategori:focus, .btn-outline-kategori:active, .btn-outline-kategori.active {
+    color: #2F4764;
+    /*border-color: #2F4764;*/
+    background-color: #FFE210;
+  }
+
+/*end section category_antre*/
+
+section#antre{
+    background: linear-gradient(to bottom, #fff, #fff);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+.input-lg::-moz-placeholder {
+   font-family: 'Viga', sans-serif;
+}
