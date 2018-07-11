@@ -9,9 +9,29 @@ class Partner extends CI_Controller{
 		$this->load->library('form_validation');
 	}
 
+	public function tampil_daftar($kategori=''){
+		$dataProKab = array(
+				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
+				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten()
+			);
+		if ($kategori='bengkel') {
+			$this->load->view('daftar_bengkel',$dataProKab);
+		}
+		elseif ($kategori='dokter') {
+			# code...
+		}
+		elseif ($kategori='restoran') {
+			# code...
+		}
+		elseif ($kategori='pemda') {
+			# code...
+		}
+		
+			
+	}
+
 	public function daftar($kategori=''){
 		if ($kategori='bengkel') {
-			// $this->load->view('daftar_bengkel');
 
 			$config = array(
 				array(
@@ -46,17 +66,17 @@ class Partner extends CI_Controller{
 	        		'rules' => 'required|min_length[7]|max_length[13]'
 				),
 
-				array(
-					'field' => 'latitude',
-	        		'label' => 'latitude',
-	        		'rules' => 'required'
-				),
+				// array(
+				// 	'field' => 'latitude',
+	   //      		'label' => 'latitude',
+	   //      		'rules' => 'required'
+				// ),
 
-				array(
-					'field' => 'longitude',
-	        		'label' => 'longitude',
-	        		'rules' => 'required'
-				),
+				// array(
+				// 	'field' => 'longitude',
+	   //      		'label' => 'longitude',
+	   //      		'rules' => 'required'
+				// ),
 
 				array(
 					'field' => 'layanan',
@@ -121,8 +141,8 @@ class Partner extends CI_Controller{
 					'id_propinsi'		=> $this->input->post('id_propinsi'),
 					'id_kabupaten'		=> $this->input->post('id_kabupaten'),
 					'telpon_kantor'		=> $this->input->post('telpon_kantor'),
-					'latitude'			=> $this->input->post('latitude'),
-					'longitude'			=> $this->input->post('longitude'),
+					// 'latitude'			=> $this->input->post('latitude'),
+					// 'longitude'			=> $this->input->post('longitude'),
 					'layanan'			=> $this->input->post('layanan')
 				);
 				$partnerId = $this->PartnerModel->insertPartner($dataPartner);

@@ -83,23 +83,157 @@ font-family: 'Viga', sans-serif; -->
                         <div class="col-md-12">
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 10px;border-top-left-radius: 10px; padding-left: 30px;" placeholder="Cari Bengkel" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-info btn-lg" type="button" style="background-color: #FFE210;border-color: #FFE210; border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
-                                            <img src="<?php echo base_url('assets/icons/search.png');?>"  height="30" alt="">
-                                        </button>
-                                    </span>
+                                    <form class="form-horizontal" action="<?=base_url();?>partner/" method="post" enctype="multipart/form-data">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <select style="border-radius: 20px;" class="form-control" id="id_kabupaten" name="id_kabupaten">
+                                                    <option>- Kabupaten -</option>
+                                                    <?php foreach ($kabupaten as $a){ ?>
+                                                    <option value="<?php echo $a->id_kabupaten?>"><?php echo $a->nama_kabupaten?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="text" class="form-control input-lg" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;border-bottom-left-radius: 10px;border-top-left-radius: 10px; padding-left: 30px;" placeholder="Cari Bengkel" />
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-info btn-lg" type="submit" name="submit" style="background-color: #FFE210;border-color: #FFE210; border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 0px;border-top-left-radius: 0px;">
+                                                <!-- <img src="<?php echo base_url('assets/icons/search.png');?>"  height="30" alt=""> -->
+                                            </input>
+                                        </span>
+                                    </form>   
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
            </div>
+           <?php foreach ($partner as $a){ ?>
+           <div class="row">
+               <div class="container" style="color: #222;">
+                   <h3><?php echo $a->nama_partner?></h3>
+                   <p><?php echo $a->nama_usaha?></p>
+                   <p><?php echo $a->alamat?></p>
+                   <p><?php echo $a->telpon_kantor?></p>
+                   <p><?php echo $a->layanan?></p>
+                   <div class="text-center">
+                    <form method="post" action="<?php echo base_url();?>customer/ambil_antre">
+                    <input class="id" type="hidden" name="id">
+
+                    <div class="md-form mb-5">
+                       <select style="border-radius: 20px;" class="form-control" id="tanggal" name="tanggal">
+                            <option>- Tanggal -</option>
+                         <!--    <?php foreach ($partner as $a){ ?> -->
+                            <option value="<?php echo $a->id_periode_antrian?>"><?php echo $a->id_partner?></option>
+                          <!--   <?php } ?> -->
+                        </select>
+                    </div>
+                        <a href='#modalAntre' class='btn btn-default btn-small' data-toggle='modal' data-id="<?php echo $a->id_partner?>">Detail</a>
+
+                    </form>
+                    </div>
+               </div>
+           </div>
+           <?php } ?>
+           <div class="row">
+                  <div class="col">
+                  <!--Tampilkan pagination-->
+                  <?php echo $pagination; ?>
+                  </div>
+            </div>
         </div>
+
+       <!--  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Pemberitahuan</h4>
+                              </div>
+                              <div class="modal-body">
+                                Konfirmasi Angsuran Anggota, satu kali klik akan menambah satu kali angsuran anggota.
+                              </div>
+                              
+                              <div class="modal-footer">
+                              <form method="post" action="<?php echo base_url();?>admin/insertAngsuran">
+                              <input class="id" type="hidden" name="id">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button class="btn btn-primary">Angsur</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+
+        <div class="modal fade" id="modalAntre" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="color: #222;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Ambil Antre</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <!-- <div class="fetched-data"></div> -->
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-default">Antre</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#modalAntre').on('show.bs.modal', function (e) {
+            var id_partner = $(e.relatedTarget).data('id_partner');
+            //menggunakan fungsi ajax untuk pengambilan data
+            $.ajax({
+                type : 'POST',
+                url: "<?php echo site_url() ?>customer/ambil_antre",
+                data :  'id_partner=' + id_partner,
+                success : function(data){
+                $('.modal-body').html(data);
+                $('#modalAntre').modal('show');
+                
+                }
+                error:function(){
+                        alert("failure");
+                    }
+            });
+         });
+    });
+  </script>
+
+
     </section>
     <!-- end kategori section -->
 
-    <footer>
+    <!-- <script type="text/javascript">
+        // function getData($data,$page){
+            $.ajax({
+                headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                type:'post',
+                data: {
+                    'tanggal':$data['tanggal'],
+                    // 'year':$data['year'],
+                    'page':$page
+                    },
+                url: "{{url('customer/meter')}}",
+                success: function(data)
+                {
+                    $('.modal-body').html(data)
+                    $('#modalLoginForm').modal('show')
+                    setListener()
+                    location.hash = $page;
+                }
+            })
+        // }
+    </script> -->
+
+   <!--  <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -153,8 +287,9 @@ font-family: 'Viga', sans-serif; -->
                 </div>
             </div>
         </div>
-    </footer>
-
+    </footer> -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"

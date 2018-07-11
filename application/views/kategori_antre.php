@@ -90,7 +90,7 @@ font-family: 'Viga', sans-serif; -->
                         <h3>BENGKEL</h3>
                         <span style="width: 100px;"><p><b>ayoantre</b> menawarkan kemudahan dalam <b>empat jenis layanan</b> yang umumnya terjadi antrean yang sangat merugikan pelanggan.</p></span>
                         <div class="buttn" style="margin-bottom: 10px;">
-                            <a href="<?php echo base_url();?>antre-bengkel" class="btn-kategori btn-outline-kategori">ANTRE</a>
+                            <a href="<?php echo base_url();?>antre_bengkel" class="btn-kategori btn-outline-kategori">ANTRE</a>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,8 @@ class CustomerModel extends CI_Model{
 		$this->db->where("pasword",md5($password));
 		$result = $this->db->get();
 		if($result->num_rows()>0)
-			return true;
+			return $result->row_array();
+			
 		else
 			return false;
 	}
@@ -31,9 +32,9 @@ class CustomerModel extends CI_Model{
 		$this->session->set_userdata('id_customer',$this->db->insert_id());
 		$lastId = $this->db->insert_id();
 	
-		$url = base_url()."masuk";
-		header("Location:$url");
-		return $lastId;
+		// $url = base_url()."masuk";
+		// header("Location:$url");
+		// return $lastId;
 	}
 
 	function cekUsername($username)
@@ -49,6 +50,29 @@ class CustomerModel extends CI_Model{
 
 	function getLastId(){
 		return $this->db->insert_id();
+	}
+
+	function semuaAntre($id,$stts){
+		$this->db->select("*");
+		$this->db->from('tb_antrian_ambil');
+		$this->db->where("id_customer",$id);
+		$this->db->where("antrian_status", $stts);
+		$result = $this->db->get();
+		if($result->num_rows()>0)
+			return $result->result();
+		else
+			return 'empty';
+	}
+
+	function antreAktif($stts2){
+		$this->db->select_max("no_antri");
+		$this->db->from('tb_antrian_ambil');
+		$this->db->where("antrian_status", $stts2);
+		$result = $this->db->get();
+		if($result->num_rows()>0)
+			return $result->result();
+		else
+			return 'empty';
 	}
 
 	

@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- css -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/login-style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/login-styles.css">
 
 	<!-- font -->
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
@@ -25,12 +25,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<?php $this->load->view('navbar_login')?>
-
-    <section id="login">
+   
+    <section id="login" style="">
         <div class="login container">
             <div class="login-row row">
-                <div class="caption-login col-md-6">
-                    <h3>ayo antre bro</h3>
+                <div class="caption-login col-md-6" style="text-align: left;padding-left: 50px;padding-right: 50px;padding-top: 60px;  padding-bottom: 100px;">
+                    <h3><b>DAFTAR! ayoantre sekarang</b></h3>
+                    <p>Keuntungan Menggunakan AyoAntre bagi personal:</p>
+                    <ul>
+                        <li>Tidak perlu buang-buang waktu untuk menunggu antrean</li>
+                        <li>Notifikasi langsung saat antrean sudah mendekati</li>
+                        <li>Notifikasi langsung saat antrean sudah mendekati</li>
+
+                    </ul>
                 </div>
                 <div class="main col-md-6" style="padding: 0px;">
                     <!-- <div class="container-login100" style="min-height: 10vh;margin-top: 50px;"> -->
@@ -40,11 +47,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     MASUK
                                 </span>
 
-                                <!-- <?php
-                                    if (isset($errormsg)) {
-                                        echo $errormsg;
+                                <?php
+                                    if (isset($error)) {
+                                        echo $error;
                                 }
-                                ?> -->
+                                ?>
                              <form class="form-horizontal" action="<?=base_url();?>masuk" method="post" enctype="multipart/form-data" id="masuk">
                                     <div class="form-group">
                                         <div class="col-sm-12" style="padding: 0px;">
@@ -64,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                             </form>        
                         </div>
-                        <div class="text-center" style="margin-top: 20px;background-color: #eee;">
+                        <div class="text-center" style="margin-top: 20px;">
                             <p style="margin-bottom: 0px; padding-top:10px;padding-bottom: 10px;font-family: 'Nunito Sans', sans-serif;">Belum memiliki akun? <a href="<?php echo base_url();?>daftar" style="text-decoration: none;" class="text-login"><b>DAFTAR</b></a></p>
                         </div>
                 </div>

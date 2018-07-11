@@ -56,5 +56,6 @@ $route['kategori'] = "customer/category";
 $route['daftar'] = "customer/daftar";
 $route['keluar'] = "customer/keluar";
 $route['bengkel'] = "partner/daftar/bengkel";
-$route['antre-bengkel'] = "customer/category_antre/bengkel";
+$route['antre_bengkel'] = "customer/category_antre/bengkel";
+$route['daftar_bengkel'] = "partner/tampil_daftar/bengkel";
 $route['translate_uri_dashes'] = FALSE;

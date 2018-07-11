@@ -151,6 +151,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-sm-6" style="padding:0;">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <input style="border-radius: 20px;" class="form-control" type="text" name="email" placeholder="Email" value="<?=set_value('email')?>">
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="form group">
                                         <div class="col-sm-12" style="padding:0;">
                                             <input type="submit" name="submit" class="btn-style-login btn-outline btn-white" style="width:100%;" value="Daftar"></input>

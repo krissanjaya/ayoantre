@@ -25,8 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 <body>
-	 
-    <?php $this->load->view('navbar_landing')?>
+	<?php $this->load->view('navbar_landing')?>
 
     <!-- master section -->
     <section id="master">
@@ -42,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="image-landing">
-                <img src="<?php echo base_url('assets/images/landing1.png');?>" align="bottom" style="display: block; bottom:0%;margin-left: auto;margin-right:auto;width:80%;margin-top: 30px;left: 0;right: 0;" max-height="100%" max-width="100%">
+                <img src="<?php echo base_url('assets/images/landing1.png');?>" align="bottom" style="display: block; bottom:0;margin-left: auto;margin-right:auto;width:80%;margin-top: 50px;left: 0;right: 0;" max-height="100%" max-width="100%">
             </div>
         </div>
 
@@ -124,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <hr>
                             </div>
                             <div class="footer">
-                                <a href="<?php echo base_url()?>bengkel" class="btn-footer">Get Started</a>
+                                <a href="<?php echo base_url()?>daftar_bengkel" class="btn-footer">Get Started</a>
                             </div>
                         </div>
                 </div>
@@ -470,14 +469,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
     <script src="<?php echo base_url();?>assets/js/main.js"></script>
 

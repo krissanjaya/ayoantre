@@ -135,8 +135,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-sm-12">
                                                 <select style="border-radius: 20px;" class="form-control" id="id_propinsi" name="id_propinsi">
                                                 <option>- Provinsi -</option>
-                                                <option value="1">Bali</option>
-                                                <option value="2">Nusa Tenggara Barat</option>
+                                                <?php foreach ($provinsi as $a){ ?>
+                                                <option value="<?php echo $a->id_provinsi?>"><?php echo $a->nama_provinsi?></option>
+                                                <?php } ?>
                                             </select>
                                             </div>
                                         </div>
@@ -146,8 +147,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-sm-12">
                                                 <select style="border-radius: 20px;" class="form-control" id="id_kabupaten" name="id_kabupaten">
                                                 <option>- Kabupaten -</option>
-                                                <option value="1">Badung</option>
-                                                <option value="2">Gianyar</option>
+                                                <?php foreach ($kabupaten as $a){ ?>
+                                                <option value="<?php echo $a->id_kabupaten?>"><?php echo $a->nama_kabupaten?></option>
+                                                <?php } ?>
                                             </select>
                                             </div>
                                         </div>
