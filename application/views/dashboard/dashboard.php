@@ -73,13 +73,13 @@
                   </div>
                   <!-- <a class="btn btn-primary" href="<?php echo base_url()?>admin/tambahAnggota" title="Tambah Anggota" type="button" style="float: right;text-align: right;"><span class=" fa fa-plus" style="padding-right: 10px; padding-left: 10px;"></a> -->
                   <div class="x_content">
-                   <?php foreach ($antre as $a){ ?> 
+                   <?php if($antre != 'empty'){ foreach ($antre as $a){ ?> 
                     <h3>ID ANTRE :</h3><p><?php echo $a->id_antrian?></p>
                     <h3>NO ANTRE :</h3><p><?php echo $a->no_antri?></p>
                     <?php foreach ($antre_aktif as $b){ ?> 
                     <h3>NO ANTRE AKTIF</h3><p><?php echo $b->no_antri?></p>
                     <?php } ?> 
-                  <?php } ?> 
+                    <?php }} ?> 
                 </div>
 
               </div>
