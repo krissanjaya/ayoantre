@@ -1,134 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Dashboard Admin</title>
-
-    <!-- Bootstrap -->
-    <link href="<?php echo base_url()?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="<?php echo base_url()?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="<?php echo base_url()?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="<?php echo base_url()?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="<?php echo base_url()?>assets/css/custom.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Acme|Lato|Pacifico" rel="stylesheet">
-
-<?php
-    // $nama=$this->session->userdata('nama');
-    // $alamat=$this->session->userdata('alamat');
-    // $mail=$this->session->userdata('mail');
-    // $jk=$this->session->userdata('jk');
-?>
-
-
-  </head>
-
-  <body class="nav-md">
-
-        <?php $this->load->view('dashboard/header')?>
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Dashboard</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button"><span class=" fa fa-search"></button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Dashboard</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <!-- <a class="btn btn-primary" href="<?php echo base_url()?>admin/tambahAnggota" title="Tambah Anggota" type="button" style="float: right;text-align: right;"><span class=" fa fa-plus" style="padding-right: 10px; padding-left: 10px;"></a> -->
-                  <div class="x_content">
-                   <?php if($antre != 'empty'){ foreach ($antre as $a){ ?> 
-                    <h3>ID ANTRE :</h3><p><?php echo $a->id_antrian?></p>
-                    <h3>NO ANTRE :</h3><p><?php echo $a->no_antri?></p>
-                    <?php foreach ($antre_aktif as $b){ ?> 
-                    <h3>NO ANTRE AKTIF</h3><p><?php echo $b->no_antri?></p>
-                    <?php } ?> 
-                    <?php }} ?> 
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Dashboard - <a href="<?php echo base_url()?>">AyoAntre</a> 2018
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="<?php echo base_url()?>assets/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="<?php echo base_url()?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="<?php echo base_url()?>assets/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="<?php echo base_url()?>assets/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="<?php echo base_url()?>assets/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- jQuery Sparklines -->
-    <script src="<?php echo base_url()?>assets/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- Flot -->
-    <script src="<?php echo base_url()?>assets/vendors/Flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="<?php echo base_url()?>assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="<?php echo base_url()?>assets/vendors/DateJS/build/date.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="<?php echo base_url()?>assets/vendors/moment/min/moment.min.js"></script>
-    <script src="<?php echo base_url()?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url()?>assets/js/custom.min.js"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dashboard</title>
+    <link href="<?php echo base_url();?>assets/images/logo_single.png" rel="shortcut icon">
+    <!--================================ load css ================================-->
+    <?php $this->load->view('dashboard/include/css')?>
+    <!---=========================================================================-->
+  </head>
+
+  <body class="nav-md">
+        <!--================================ load navbar ================================-->
+        <?php $this->load->view('dashboard/header')?>
+        <!---=========================================================================-->
+
+        <!--============== page content ===============-->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3><b>DASHBOARD</b></h3>
+                    </div>
+                    <div class="title_right">
+                      <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class=" fa fa-search"></button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <!---=========================================================================-->
+                <?php if($antre!=='empty'){?>
+                    <?php foreach ($antre as $a){ ?> 
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2><b><?php echo $a->nama_partner?></b></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                  
+                                    <div class="x_content">
+                                        <div class="row row-antre">
+                                            <div class="col-md-4" style="padding: 2px;">
+                                                <div class="col-md-12 item-antre">
+                                                    <h3>ID ANTRE</h3>
+                                                    <hr width="80" style="border-width: 5px;border-color: #98ff84;">
+                                                    <span style="width: 100px;"><p><?php echo $a->id_antrian?></p></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" style="padding: 2px;">
+                                                <div class="col-md-12 item-antre">
+                                                    <h3>NO ANTRE</h3>
+                                                    <hr width="80" style="border-color: #84abff;border-width: 5px;">
+                                                    <span style="width: 100px;"><p><?php echo $a->no_antri?></p></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" style="padding: 2px;">
+                                                <div class="col-md-12 item-antre" style="background-color: #ffef7f;">
+                                                    <h3>NO ANTRE AKTIF</h3>
+                                                    <hr width="80" style="border-color: #ffc02a;border-width: 5px;">
+                                                     <?php foreach ($antre_aktif as $b){ ?> 
+                                                    <span style="width: 100px;"><p><?php echo $b->no_antri?></p></span>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                        <?php } ?> 
+                  <?php } ?> 
+              <?php }else{
+                  echo 'Tidak Sedang Antre';
+              } ?> 
+          </div>
+      </div>
+        <!-- /page content -->
+
+      <!--================================ load css ================================-->
+      <?php $this->load->view('dashboard/include/js')?>
+      <!---=========================================================================-->
+
+  </body>
+</html>

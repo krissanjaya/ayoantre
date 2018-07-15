@@ -7,7 +7,7 @@ class Customer extends CI_Controller{
 
 
 		$ayoantre = $this->load->database('ayoantre', TRUE);
-		$ayoantre_bengkel = $this->load->database('ayoantre_bengkel', TRUE);
+	
 		$this->load->model('CustomerModel');
 		$this->load->model('PartnerModel');
 		$this->load->model('MailModel');
@@ -17,7 +17,16 @@ class Customer extends CI_Controller{
 	}
 
 	public function masuk(){
-		
+		if ($this->session->userdata('id_customer')!='') {
+			
+			redirect('','refresh');
+		}
+		else{
+			$this->load->view('login_user');
+		}
+	}
+
+	public function cek_masuk(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('pasword');
 		$data     = $this->CustomerModel->cek_login($username, $password);
@@ -211,24 +220,24 @@ class Customer extends CI_Controller{
 			$total_data=$this->PartnerModel->countPartner();
 
 			$this->load->library('pagination');
-			$config['base_url'] = base_url('antre-bengkel');
+			$config['base_url'] =  base_url() . "customer/category_antre";
 			$config['total_rows'] = $total_data;
-			$config['per_page'] = 5;
+			$config['per_page'] = 3;
 
 			   // Membuat Style pagination untuk BootStrap v4
 	      	$config['first_link']       = 'First';
 	        $config['last_link']        = 'Last';
 	        $config['next_link']        = 'Next';
 	        $config['prev_link']        = 'Prev';
-	        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
+	        $config['full_tag_open']    = '<div class="pagging text-center" style="color:#3E324F;"><nav style="color:#3E324F;"><ul class="pagination justify-content-center" style="color:#3E324F;">';
 	        $config['full_tag_close']   = '</ul></nav></div>';
-	        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+	        $config['num_tag_open']     = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
 	        $config['num_tag_close']    = '</span></li>';
-	        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
-	        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-	        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-	        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-	        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
+	        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link" style="background-color:#3E324F;border-color:transparent;">';
+	        $config['cur_tag_close']    = '<span class="sr-only" style="color:#3E324F;">(current)</span></span></li>';
+	        $config['next_tag_open']    = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['next_tagl_close']  = '<span aria-hidden="true" style="color:#3E324F;">&raquo;</span></span></li>';
+	        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link" style="color:#3E324F;">';
 	        $config['prev_tagl_close']  = '</span>Next</li>';
 	        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
 	        $config['first_tagl_close'] = '</span></li>';
@@ -242,7 +251,7 @@ class Customer extends CI_Controller{
 	    	$data = array(
 				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
 				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten(),
-				'partner'	=> $this->PartnerModel->semuaPartner($config['per_page'],$from),
+				'partner'	=> $this->PartnerModel->semuaPartner($config['per_page'],$from)
 				// 'tanggal'	=> $this->PartnerModel->semuaTanggal($id_partner)
 			);
 
@@ -265,10 +274,74 @@ class Customer extends CI_Controller{
 
 	public function ambil_antre(){
 
-		$id_partner= $this->input->post('id_partner');
+		$id= $this->input->post('id');
+		if (isset($id) and !empty($id)) {
+			$data = $this->PartnerModel->semuaTanggal($id);
+			// $output='';
+
+			
+				echo '<form method="post" action="'.base_url().'customer/antre">
+                    	
+
+                    <div class="md-form mb-5">
+                       <select style="border-radius: 5px; margin-top:10px;" class="form-control" id="tanggal" name="tanggal">';
+                            if ($data=='empty'){
+                            	echo '<option>- Tidak Ada Jadwal -</option>';
+                            }
+                        	else{
+                        		echo '<option>- Tanggal -</option>';
+                        		foreach ($data as $a) {
+	                            echo '<option value="'.$a["id_periode_antrian"].'">'.$a["tgl"].'</option>
+	                            <input class="id" type="hidden" name="id_partner" value="'.$a["id_partner"].'">
+	                            <input class="id_periode" type="hidden" name="id_periode" value="'.$a["id_periode_antrian"].'">';
+	               				} 
+                        	}
+                        echo '</select>
+                         <input style="margin-top:30px;width:100%;" type="submit" name="submit" class="btn btn-success btn-large" style="width:100%;" value="ANTRE"></input>
+                    </div>
+                   </form>';
+				# code...
+			
+
+		}
+			else{
+				echo 'GAGAL';
+		}
+
+
+		// $id_customer = $this->session->userdata('id_customer');
+		// // $data = $this->PartnerModel->semuaTanggal($id_partner);
+		// $this->PartnerModel->semuaTanggal($id_partner);
+	}
+
+	public function antre(){
+
 		$id_customer = $this->session->userdata('id_customer');
-		// $data = $this->PartnerModel->semuaTanggal($id_partner);
-		$this->PartnerModel->semuaTanggal($id_partner);
+		$id = $this->input->post('tanggal');
+		$id_partner = $this->input->post('id_partner');
+		$id_periode = $this->input->post('id_periode');
+		
+		$data = $this->PartnerModel->semuaPeriode($id);
+		
+		$data_antri= array(
+				// 		'id_antrian' 			=> null,
+						'id_partner' 		=> $id_partner,
+						'id_jenis_usaha' 	=> '1',
+						'id_chat'			=> '1',
+						'id_server_chat'	=> '1',
+						'id_customer'   	=> $id_customer,
+						'id_periode_antrian'   	=> $id_periode,
+						'no_antri'   		=> null,
+						'antrian_status'   	=> null,
+						'status_chatbot'   	=> null,
+						'status_android'   	=> null,
+						'status_iphone'   	=> null,
+						'kode_unik'   		=> null
+		);
+
+		$this->CustomerModel->insertAntre($data_antri);
+		redirect('customer/dashboard','refresh');
+
 	}
 
 	public function dashboard(){

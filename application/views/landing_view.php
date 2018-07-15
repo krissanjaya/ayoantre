@@ -10,18 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- css -->
 	<title>ayoantre</title>
+    <link href="<?php echo base_url();?>assets/images/logo_single.png" rel="shortcut icon">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/animate.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/style.css">
-
-	<!-- font -->
-	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Chela+One|Dosis|Goudy+Bookletter+1911|Righteous|Sacramento|Viga|Yeon+Sung" rel="stylesheet">
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="assets/plugins/device-mockups/device-mockups.css">
-    <link rel="stylesheet" href="assets/plugins/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/landing-styles.css">
 
 </head>
 <body>
@@ -41,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="image-landing">
-                <img src="<?php echo base_url('assets/images/landing1.png');?>" align="bottom" style="display: block; bottom:0;margin-left: auto;margin-right:auto;width:80%;margin-top: 50px;left: 0;right: 0;" max-height="100%" max-width="100%">
+                <img src="<?php echo base_url('assets/images/landing1.png');?>" align="bottom" style="display: block; bottom:0;margin-left: auto;margin-right:auto;width:80%;margin-top: 27px;left: 0;right: 0;" max-height="100%" max-width="100%">
             </div>
         </div>
 
@@ -55,32 +47,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         	</div>
         	<p style=""><b>AyoAntre</b> menawarkan fitur umum untuk <b>Personal</b> dan <b>Pemilik Usaha</b></p>
         	
-            <div class="row" style="padding-right: 80px;padding-left: 80px;">
-            			<div class="col-lg-2 feature-item" style="margin-left: auto;margin-right: auto;">
-                                <img src="<?php echo base_url('assets/images/cari2.png');?>" height="120">
-                                <h3 style="font-family: 'Viga', sans-serif;font-size: 20px; color: #444545;">Cari</h3>
-                                <p style="padding-top: 0px;font-family: 'Yeon Sung', cursive;">Temukan layanan antrean dengan cepat dan mudah di area Anda</p>
-                        </div>
-                        <div class="col-lg-2 feature-item" style="margin-left: auto;margin-right: auto;">
-                                <img src="<?php echo base_url('assets/images/daftar1.png');?>" height="120">
-                                <h3 style="font-family: 'Viga', sans-serif;font-size: 20px; color: #444545;">Daftar</h3>
-                                <p style="padding-top: 0px;font-family: 'Yeon Sung', cursive;">Ambil posisi Anda dalam Antrean secara online</p>
-                        </div>
-                        <div class="col-lg-2 feature-item" style="margin-left: auto;margin-right: auto;">
-                                <img src="<?php echo base_url('assets/images/tunggu2.png');?>" height="120">
-                                <h3 style="font-family: 'Viga', sans-serif;font-size: 20px; color: #444545;">Tunggu</h3>
-                                <p style="padding-top: 0px;font-family: 'Yeon Sung', cursive;">Bersantai, tunggu antrian Anda</p>
-                        </div>
-                        <div class="col-lg-2 feature-item" style="margin-left: auto;margin-right: auto;">
-                                <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="120">
-                                <h3 style="font-family: 'Viga', sans-serif;font-size: 20px; color: #444545;">Monitor</h3>
-                                <p style="padding-top: 0px;font-family: 'Yeon Sung', cursive;">Notifikasi posisi antrean dan cek progres layanan Anda</p>
-                        </div>
-                        <div class="col-lg-2 feature-item" style="margin-left: auto;margin-right: auto;">
-                                <img src="<?php echo base_url('assets/images/kontrol.png');?>" height="120">
-                                <h3 style="font-family: 'Viga', sans-serif;font-size: 20px; color: #444545;">Kontrol</h3>
-                                <p style="padding-top: 0px;font-family: 'Yeon Sung', cursive;">Kelola antrean dan Otomatisasi proses Bisnis Anda</p>
-                        </div>
+            <div class="row row-fitur">
+                <div class="col-md-1"> </div>
+                <div class="col-md-2 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/cari2.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>CARI</h3>
+                        <hr style="margin-top: 0px;">
+                        <span style="width: 100px;"><p>Temukan layanan antrean dengan cepat dan mudah di area Anda</p></span>
+                    </div>
+                </div>
+                <div class="col-md-2 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/daftar1.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>DAFTAR</h3>
+                        <hr style="margin-top: 0px;">
+                        <span style="width: 100px;"><p>Ambil posisi Anda dalam Antrean secara online</p></span>
+                    </div>
+                </div>
+                <div class="col-md-2 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/tunggu2.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>TUNGGU</h3>
+                        <hr style="margin-top: 0px;">
+                        <span style="width: 100px;"><p>Bersantai, tunggu antrian Anda</p></span>
+                    </div>
+                </div>
+                <div class="col-md-2 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>MONITOR</h3>
+                        <hr style="margin-top: 0px;">
+                        <span style="width: 100px;"><p>Notifikasi posisi antrean dan cek progres layanan Anda</p></span>
+                    </div>
+                </div>
+                <div class="col-md-2 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/kontrol.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>KONTROL</h3>
+                        <hr style="margin-top: 0px;">
+                        <span style="width: 100px;"><p>Kelola antrean dan Otomatisasi proses Bisnis Anda</p></span>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
             </div>
         </div>
     </section>
@@ -88,13 +97,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section id="howuse">
         <div class="container">
             <div class="row">
-                        <div class="col-md-6">
-                            <img src="<?php echo base_url('assets/images/howuse.png');?>" align="bottom" style="display: block;margin-left: auto;margin-right:auto;width:100%; padding-right: 10px;padding-left: 10px;" max-height="100%" max-width="100%">
+                        <div data-wow-iteration="2" class="col-md-6 wow swing center">
+                            <img src="<?php echo base_url('assets/images/how4.png');?>" align="bottom" style="display: block;margin-left: auto;margin-right:auto;width:100%; padding-right: 10px;padding-left: 10px;" max-height="100%" max-width="100%">
                         </div>
                         <div class="col-md-6">
-                            <h2 style="margin-bottom: 0px;padding-right: 10px;padding-left: 10px;font-family: 'Sacramento',cursive;">Who Can Use?</h2>
-                            <p style="padding-right: 10px;padding-left: 10px;font-family: 'Yeon Sung', cursive;">Aplikasi <b>ayoantre</b> dapat digunakan oleh customer dan pemilik bisnis. Coba sekarang dan lihat perubahan yang diberikan</p>
-                            <a href="<?php echo base_url()?>masuk" class="btn-style btn-outline btn-xl mb-1 btn-white js-scroll-trigger" style="margin:5px;">Personal</a><a style="margin:5px;" href="#services" class="btn-style btn-outline btn-xl mb-1 btn-white js-scroll-trigger">Business</a>
+                            <h2 style="margin-bottom: 0px;padding-right: 10px;padding-left: 10px;font-size: 30pt;">Who Can Use?</h2>
+                            <p style="padding-right: 10px;padding-left: 10px;">Aplikasi <b>ayoantre</b> dapat digunakan oleh customer dan pemilik bisnis. Coba sekarang dan lihat perubahan yang diberikan</p>
+                            <a href="<?php echo base_url()?>masuk" class="btn-how1" style="margin:5px;">Personal</a><a style="margin:5px;" href="#services" class="btn-how2">Business</a>
                         </div>
             </div>            
         </div>
@@ -103,93 +112,64 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <section id="services">
        <div class="container">
            <div class="row text-center">
-                <div class="col-md-12" style="height: 100px;">
-                    <h2 style="font-family: 'Sacramento',cursive;font-size: 70px;">Services</h2>
-                    <p style="color: #333;font-family: 'Yeon Sung', cursive;">Ayoantre  memberikan berbagai kemudahan bagi pelanggan dan pemilik bisnis. Daftar dan nikmati layanan gratis kami yang akan terus bertambah</p>
+                <div class="col-md-12" style="height: 100px;margin-bottom: 20px;">
+                    <h2 style="font-family: 'Fredoka One', cursive; font-size: 30pt;">Services</h2>
+                    <p style="color: #fff;">Ayoantre  memberikan berbagai kemudahan bagi pelanggan dan pemilik bisnis.</p>
+                        <p style="color: #fff;">Daftar dan nikmati layanan gratis kami yang akan terus bertambah</p>
                     <hr>
                 </div>
-            </div>        
-           
-            <div class="row service">
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="item-service bengkel">
-                            <div class="title">
-                                 <img src="<?php echo base_url('assets/images/bengkel.png');?>" height="130">
-                                 <h3>Bengkel</h3>
-                                 <hr>
-                            </div>
-                            <div class="type">
-                                <p>Aplikasi <b>ayoantre</b> bengkel memberikan kemudahan dalam antrean bengkel. Coba sekarang!</p>
-                                <hr>
-                            </div>
-                            <div class="footer">
-                                <a href="<?php echo base_url()?>daftar_bengkel" class="btn-footer">Get Started</a>
-                            </div>
-                        </div>
-                </div>
+            </div>    
 
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="item-service dokter popular">
-                            <div class="title">
-                                 <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="130">
-                                 <h3>Dokter</h3>
-                                 <hr>
-                            </div>
-                            <div class="type">
-                                <p style="white-space: normal;">COMING SOON</p>
-                                <hr>
-                            </div>
-                            <div class="footer">
-                                <a href="#" class="btn-footer">Get Started</a>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                    <div class="item-service restoran">
-                        <div class="title">
-                            <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="130">
-                            <h3>Restoran</h3>
-                                 <hr>
-                        </div>
-                        <div class="type">
-                            <p style="white-space: normal;">COMING SOON</p>
-                            <hr>
-                        </div>
-                        <div class="footer">
-                            <a href="#" class="btn-footer">Get Started</a>
-                        </div>
+            <div class="row row-fitur">
+                <div class="col-md-3 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/bengkel.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>Bengkel</h3>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <span style="width: 100px;"><p>Aplikasi <b>ayoantre</b> bengkel memberikan kemudahan dalam antrean bengkel. Coba sekarang!</p></span>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <a href="<?php echo base_url()?>daftar_bengkel" style="" class="btn-how1">Coba Sekarang</a>
                     </div>
                 </div>
-
-                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                        <div class="item-service pemda popular">
-                            <div class="title">
-                                 <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="130">
-                                 <h3>Pemda</h3>
-                                 <hr>
-                            </div>
-                            <div class="type">
-                                <p style="white-space: normal;">COMING SOON</p>
-                                <hr>
-                            </div>
-                            <div class="footer">
-                                <a href="#" class="btn-footer">Get Started</a>
-                            </div>
-                        </div>
+                <div class="col-md-3 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/daftar1.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>Dokter</h3>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <span style="width: 100px;"><p>Aplikasi <b>ayoantre</b> bengkel memberikan kemudahan dalam antrean bengkel. Coba sekarang!</p></span>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <a href="<?php echo base_url()?>daftar_bengkel" style="" class="btn-how1">Coba Sekarang</a>
+                    </div>
                 </div>
-            </div>
+                <div class="col-md-3 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/tunggu2.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>Restoran</h3>
+                       <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <span style="width: 100px;"><p>Aplikasi <b>ayoantre</b> bengkel memberikan kemudahan dalam antrean bengkel. Coba sekarang!</p></span>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <a href="<?php echo base_url()?>daftar_bengkel" style="" class="btn-how1">Coba Sekarang</a>
+                    </div>
+                </div>
+                <div class="col-md-3 wow fadeInUp" style="padding: 2px;">
+                    <div class="col-md-12 item-kategori">
+                        <img src="<?php echo base_url('assets/images/masuk1.png');?>" height="130" style="padding-top: 10px;">
+                        <h3>Pemda</h3>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <span style="width: 100px;"><p>Aplikasi <b>ayoantre</b> bengkel memberikan kemudahan dalam antrean bengkel. Coba sekarang!</p></span>
+                        <hr style="margin-top: 20px;margin-bottom: 20px;">
+                        <a href="<?php echo base_url()?>daftar_bengkel" style="" class="btn-how1">Coba Sekarang</a>
+                    </div>
+                </div>
+            </div>    
         </div>
     </section>
 
     <section id="testimonial">
         <div class="container">
-            <div class="section-heading text-center">
-                <h2 style="font-family: 'Sacramento',cursive;font-size: 40px;">Our Testimonial</h2>
+            <div class="section-heading text-center wow swing center">
+                <h2 style="font-size: 40px;">Our Testimonial</h2>
                 <hr>
-                <div class="quote">
-                    <i class="fa fa-quote-left fa-4x"></i>
-                </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -215,10 +195,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             </div>
                                             <div class="col-md-9">
-                                                <h4>My awesome review</h4>
-                                                <p class="review-text text-justify">My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. </p>
+                                                <h4>Sangat Bermanfaat!</h4>
+                                                <p class="review-text text-justify">Aplikasi ayoantre sangat membantu pelanggan dalam proses antre di suatu instansi </p>
                                             </div>
                                         </div>
                                     </div>
@@ -238,10 +216,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             </div>
                                             <div class="col-md-9">
-                                                <h4>My awesome review</h4>
-                                                <p class="review-text text-justify">My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. </p>
+                                                <h4>Aplikasi yang Mantap!</h4>
+                                                <p class="review-text text-justify">Terimakasih telah menyediakan aplikasi yang bermanfaat bagi pelanggan </p>
                                             </div>
                                         </div>
                                     </div>
@@ -260,10 +236,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <h4>My awesome review</h4>
-                                                <p class="review-text text-justify">My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. My awesome review.
-                                                    My awesome review. My awesome review. My awesome review. </p>
+                                                <h4>Terimakasih Ayoantre</h4>
+                                                <p class="review-text text-justify">Selain bermanfaat bagi pelanggan, ayoantre juga dapat memberikan manfaat bagi perusahaan yang menggunakan </p>
                                             </div>
                                         </div>
                                     </div>
@@ -341,6 +315,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </section> -->
 
+    <section id="trial">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                    
+                </div>
+                <div class="col-sm-6">
+                    <h3 style="color:#ffd400;font-family: 'Fredoka One', cursive;font-size: 30pt;"><b>Get Starter Free</b></h3>
+                    <p style="color: #fff;font-family: 'Nunito Sans', sans-serif;"><b>Getting started</b> is easy and free for 6 months, it takes only few minutes to setup</p>
+                </div>
+                <div class="col-sm-4">
+                    <span style="margin-left:auto;margin-right:auto;display:block;margin-top:8%;margin-bottom:0%;">
+                        <a href="#features" class="btn-how1">GET STARTED NOW</a>
+                    </span>
+                </div>
+                <div class="col-sm-1">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="client">
         <div class="container">
@@ -392,85 +387,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </section>
 
-    <section id="trial">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-1">
-                    
-                </div>
-                <div class="col-sm-6">
-                    <h3 style="color:#ffd400;"><b>Get Starter Free</b></h3>
-                    <p style="color: #fff;"><b>Getting started</b> is easy and free for 6 months, it takes only few minutes to setup</p>
-                </div>
-                <div class="col-sm-4">
-                    <span style="margin-left:auto;margin-right:auto;display:block;margin-top:8%;margin-bottom:0%;">
-                        <a href="#features" class="btn-style btn-outline btn-xl mb-5 btn-white js-scroll-trigger">GET STARTED NOW</a>
-                    </span>
-                </div>
-                <div class="col-sm-1">
-                    
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php $this->load->view('include/footer')?>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <p style="font-size: 16px;"> Available on</p>
-                    <hr style="margin-top: 0px;">
-                    <div style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%;">
-                        <img src="<?php echo base_url()?>assets/images/googleplay.png" height="100">
-                    </div>
-                    <hr style="margin-top: 0px;">
-                </div>
-                <div class="col-md-8">
-                    <h5 class="text-right">
-                        <img src="<?php echo base_url('assets/images/logoayo.png');?>"  height="70" class="d-inline-block align-center" alt="">
-                    </h5>
-                    <p class="text-right" style="color:  #818080;font-family: 'Alegreya Sans SC', sans-serif;"><b>AyoAntre</b> adalah sebuah aplikasi yang membantu pengguna dalam menghemat waktu dalam mengantre sebuah layanan, cukup melalui website atau smartphone tanpa harus berdiri menunggu giliran, <b>AyoAntre</b> juga memberikan layanan pada backend process yg menjamin best paractise dan efisiensi proses terbaik</p>
-                    <div class="text-right" style="margin-right: 20px;">
-                        <img src="<?php echo base_url()?>assets/icons/location.png" height="30"></i> Bukit, Jimbaran. Bali  <img src="<?php echo base_url()?>assets/icons/phone.png" height="30"> +6289688604302
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                    <br>
-                    <div class="icons" style="margin-left:auto;margin-right:auto;display:block;margin-bottom:0%;">
-                        <a href="#">
-                            <i class="icon-social-facebook"></i>
-                        </a>
-                        <a href="#">
-                            <i class="icon-social-twitter"></i>
-                        </a>
-                        <a href="#">
-                            <i class="icon-social-instagram"></i>
-                        </a>
-                        <a href="#">
-                            <i class="icon-social-google"></i>
-                        </a>
-                    </div>
-                    <p class="m-0">&copy; ayoantre 2018. All Rights Reserved.</p>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="#">Privacy</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">Terms</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#">FAQ</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- <script src="<?php echo base_url();?>assets/js/main.js"></script> -->
 
-    <script src="<?php echo base_url();?>assets/js/main.js"></script>
+    <script src="<?php echo base_url();?>assets/js/wow.min.js"></script>
 
     <script type="text/javascript">
             // Some random colors
@@ -483,7 +404,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           let ball = document.createElement("div");
           ball.classList.add("ball");
           ball.style.background = colors[Math.floor(Math.random() * colors.length)];
-          ball.style.left = `${Math.floor(Math.random() * 80)}vw`;
+          ball.style.left = `${Math.floor(Math.random() * 50)}vw`;
           ball.style.top = `${Math.floor(Math.random() * 70)}vh`;
           ball.style.transform = `scale(${Math.random()})`;
           ball.style.width = `${Math.random()}em`;
@@ -515,6 +436,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           );
         });
 
+    </script>
+
+    <script>
+         wow = new WOW(
+          {
+          boxClass:     'wow',      // default
+          animateClass: 'animated', // default
+          offset:       10,          // default
+          mobile:       false,       // default
+          live:         true        // default
+         }
+         )
+         wow.init();
     </script>
 
     <style type="text/css">

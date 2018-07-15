@@ -1,0 +1,251 @@
+/*start button*/
+.btn-white {
+    color: #222;
+    background-color: #fff;
+}
+
+.btn-grey {
+    color: #6c757d;
+}
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+    color: #2F4764;
+    background-color: #FFE210;
+  }
+
+.btn-style {
+    border-radius: 300px;
+    font-family: 'Varela', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+}
+
+.btn-style-login {
+    border-radius: 300px;
+    font-family: 'Varela', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 11px;
+    padding: 10px 10px;
+}
+
+.btn-xl {
+    font-size: 11px;
+    padding: 15px 45px;
+}
+
+.card {
+    margin: 10px;
+}
+
+.text-normalize {
+    font-size: 12px !important;
+}
+
+/*end button*/
+
+
+/*start navbar*/
+.nav-pad-0 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.nav-pad-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#mainNav {
+    border-color: #fff;
+    background-color: #fff;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: #3E324F;
+}
+
+#mainNav .navbar-brand {
+    color: #2F4764;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+#mainNav .navbar-brand:hover,
+#mainNav .navbar-brand:focus {
+    color: #3E324F;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 12px;
+    padding: 8px 10px;
+    font-weight: bold;
+    color: #3E324F;
+}
+
+#mainNav .navbar-nav>li>a {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#mainNav .navbar-nav>li>a.active {
+    border-bottom:2px solid #3E324F;
+    color: #3E324F !important;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#mainNav .navbar-nav>li>a.active:hover {
+
+    background-color: transparent;
+}
+
+#mainNav .navbar-nav>li>a,
+#mainNav .navbar-nav>li>a:focus {
+    font-weight: bold;
+    color: #3E324F;
+}
+
+#mainNav .navbar-nav>li>a:hover,
+#mainNav .navbar-nav>li>a:focus:hover {
+    font-weight: bold;
+    color: #3E324F;
+}
+
+    @media (min-width: 992px) {
+        #mainNav {
+            border-color: transparent;
+            background-color: transparent;
+            /* padding-top: 20px;
+            padding-bottom: 20px; */
+        }
+        #mainNav .navbar-brand {
+            color: fade(white, 70%);
+        }
+        #mainNav .navbar-brand:hover,
+        #mainNav .navbar-brand:focus {
+            color: #3E324F;
+        }
+        #mainNav .navbar-nav>li>a,
+        #mainNav .navbar-nav>li>a:focus {
+            font-weight: bold;
+            color: #3E324F;
+        }
+        #mainNav .navbar-nav>li>a:hover,
+        #mainNav .navbar-nav>li>a:focus:hover {
+            border-bottom:2px solid #3E324F;
+            color: #3E324F;
+        }
+        #mainNav.navbar-shrink {
+            border-color: #fff;
+            background-color: #fff;
+        }
+        #mainNav.navbar-shrink .navbar-brand {
+            color: #3E324F;
+        }
+        #mainNav.navbar-shrink .navbar-brand:hover,
+        #mainNav.navbar-shrink .navbar-brand:focus {
+            color: #3E324F;
+        }
+        #mainNav.navbar-shrink .navbar-nav>li>a,
+        #mainNav.navbar-shrink .navbar-nav>li>a:focus {
+            color: #3E324F;
+        }
+        #mainNav.navbar-shrink .navbar-nav>li>a:hover,
+        #mainNav.navbar-shrink .navbar-nav>li>a:focus:hover {
+            color: #3E324F;
+        }
+    }
+
+section#antre{
+    background: linear-gradient(to top, #FAF7FF, #FAF7FF);
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.btn-how3 {
+    border-radius: 300px;
+    font-family: 'Varela', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: #3E324F;
+    font-size: 8pt;
+    color: #fff;
+    padding: 10px 10px;
+}
+
+.btn-how3:hover, .btn-how3:focus, .btn-how3:active, .btn-how3.active {
+    color: #fff;
+    background-color: #304D39; 
+  }
+
+  .btn-how4 {
+    /*border-color: #38774C;*/
+    font-family: 'Varela', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    background-color: #38774C;
+    font-size: 8pt;
+    color: #fff;
+    padding: 10px 10px;
+}
+
+.btn-how4:hover, .btn-how4:focus, .btn-how4:active, .btn-how4.active {
+    color: #fff;
+    background-color: #29272E; 
+  }
+
+.btn-default {
+    width: 100%;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 20px;
+    background-color: #3E324F;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active{
+    color: #fff;
+    /*border-color: #2F4764;*/
+    background-color: #29272E; 
+  }
+
+section#antre .antre-item{
+    box-shadow: -.5px -.5px 0 .5px #ccc, inset -1px -1px 0 0 #ccc;
+    background-color: #fff;
+    color: #222;
+    border-radius: 10px;
+}
+
+section#antre h3 {
+    font-family: 'Fredoka One', cursive;
+    color: #444545;
+    font-size: 25pt;
+}
+
+section#antre p {
+     font-family: 'Nunito Sans', sans-serif;
+    color: #29272E;
+    margin-bottom: 0px;
+}
+
+
+
+body {
+    width: 100%;
+    height: 100%;
+}

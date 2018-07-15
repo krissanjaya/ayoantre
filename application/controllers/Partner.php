@@ -12,7 +12,8 @@ class Partner extends CI_Controller{
 	public function tampil_daftar($kategori=''){
 		$dataProKab = array(
 				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
-				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten()
+				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten(),
+				'jenis'	=>	$this->PartnerModel->semuaJenisUsaha()
 			);
 		if ($kategori='bengkel') {
 			$this->load->view('daftar_bengkel',$dataProKab);
@@ -143,7 +144,9 @@ class Partner extends CI_Controller{
 					'telpon_kantor'		=> $this->input->post('telpon_kantor'),
 					// 'latitude'			=> $this->input->post('latitude'),
 					// 'longitude'			=> $this->input->post('longitude'),
-					'layanan'			=> $this->input->post('layanan')
+					'layanan'			=> $this->input->post('layanan'),
+					'antrian_panggil_ulang'	=> '1',
+					'antrian_max_panggil'	=> '1'
 				);
 				$partnerId = $this->PartnerModel->insertPartner($dataPartner);
 
@@ -177,6 +180,133 @@ class Partner extends CI_Controller{
 	    {
 	        return true;
 	    }
+	}
+
+	public function show_partner(){
+		$search = $this->input->post("nama_partner");
+		$id_kabupaten = $this->input->post("id_kabupaten");
+		if ($this->input->post("nama_partner")=='') {
+			$total_data=$this->PartnerModel->countPartnerKabupaten($id_kabupaten);
+
+			$this->load->library('pagination');
+			$config['base_url'] =  base_url() . "partner/show_partner";
+			$config['total_rows'] = $total_data;
+			$config['per_page'] = 3;
+
+			   // Membuat Style pagination untuk BootStrap v4
+	      		$config['first_link']       = 'First';
+	        $config['last_link']        = 'Last';
+	        $config['next_link']        = 'Next';
+	        $config['prev_link']        = 'Prev';
+	        $config['full_tag_open']    = '<div class="pagging text-center" style="color:#3E324F;"><nav style="color:#3E324F;"><ul class="pagination justify-content-center" style="color:#3E324F;">';
+	        $config['full_tag_close']   = '</ul></nav></div>';
+	        $config['num_tag_open']     = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['num_tag_close']    = '</span></li>';
+	        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link" style="background-color:#3E324F;border-color:transparent;">';
+	        $config['cur_tag_close']    = '<span class="sr-only" style="color:#3E324F;">(current)</span></span></li>';
+	        $config['next_tag_open']    = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['next_tagl_close']  = '<span aria-hidden="true" style="color:#3E324F;">&raquo;</span></span></li>';
+	        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link" style="color:#3E324F;">';
+	        $config['prev_tagl_close']  = '</span>Next</li>';
+	        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+	        $config['first_tagl_close'] = '</span></li>';
+	        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+	        $config['last_tagl_close']  = '</span></li>';
+
+			$this->pagination->initialize($config);
+
+	    	$from=($this->uri->segment(3));
+
+			$idkabupaten= array(
+				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
+				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten(),
+				'idkabupaten' => $this->PartnerModel->show_partner_kabupaten($id_kabupaten,$config['per_page'],$from)
+			);
+			$idkabupaten['pagination'] = $this->pagination->create_links();
+			$this->load->view('antre_bengkel_kabupaten',$idkabupaten);
+		}
+
+		elseif(isset($id_kabupaten) && isset($search)){
+			$total_data=$this->PartnerModel->countPartnerKabupatenNama($id_kabupaten,$search);
+
+			$this->load->library('pagination');
+			$config['base_url'] =  base_url() . "partner/show_partner";
+			$config['total_rows'] = $total_data;
+			$config['per_page'] = 3;
+
+			   // Membuat Style pagination untuk BootStrap v4
+	      		$config['first_link']       = 'First';
+	        $config['last_link']        = 'Last';
+	        $config['next_link']        = 'Next';
+	        $config['prev_link']        = 'Prev';
+	        $config['full_tag_open']    = '<div class="pagging text-center" style="color:#3E324F;"><nav style="color:#3E324F;"><ul class="pagination justify-content-center" style="color:#3E324F;">';
+	        $config['full_tag_close']   = '</ul></nav></div>';
+	        $config['num_tag_open']     = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['num_tag_close']    = '</span></li>';
+	        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link" style="background-color:#3E324F;border-color:transparent;">';
+	        $config['cur_tag_close']    = '<span class="sr-only" style="color:#3E324F;">(current)</span></span></li>';
+	        $config['next_tag_open']    = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['next_tagl_close']  = '<span aria-hidden="true" style="color:#3E324F;">&raquo;</span></span></li>';
+	        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link" style="color:#3E324F;">';
+	        $config['prev_tagl_close']  = '</span>Next</li>';
+	        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+	        $config['first_tagl_close'] = '</span></li>';
+	        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+	        $config['last_tagl_close']  = '</span></li>';
+
+			$this->pagination->initialize($config);
+
+	    	$from=($this->uri->segment(3));
+
+			$data= array(
+				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
+				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten(),
+				'search' => $this->PartnerModel->show_partner_kabupaten_nama($id_kabupaten,$search,$config['per_page'],$from)
+			);
+			$data['pagination'] = $this->pagination->create_links();
+			$this->load->view('antre_bengkel_kabupaten_nama',$data);
+		}
+
+		else{
+			$total_data=$this->PartnerModel->countPartnerNama($search);
+
+			$this->load->library('pagination');
+			$config['base_url'] =  base_url() . "partner/show_partner";
+			$config['total_rows'] = $total_data;
+			$config['per_page'] = 3;
+
+			   // Membuat Style pagination untuk BootStrap v4
+	      		$config['first_link']       = 'First';
+	        $config['last_link']        = 'Last';
+	        $config['next_link']        = 'Next';
+	        $config['prev_link']        = 'Prev';
+	        $config['full_tag_open']    = '<div class="pagging text-center" style="color:#3E324F;"><nav style="color:#3E324F;"><ul class="pagination justify-content-center" style="color:#3E324F;">';
+	        $config['full_tag_close']   = '</ul></nav></div>';
+	        $config['num_tag_open']     = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['num_tag_close']    = '</span></li>';
+	        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link" style="background-color:#3E324F;border-color:transparent;">';
+	        $config['cur_tag_close']    = '<span class="sr-only" style="color:#3E324F;">(current)</span></span></li>';
+	        $config['next_tag_open']    = '<li class="page-item" style="color:#3E324F;"><span class="page-link" style="color:#3E324F;">';
+	        $config['next_tagl_close']  = '<span aria-hidden="true" style="color:#3E324F;">&raquo;</span></span></li>';
+	        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link" style="color:#3E324F;">';
+	        $config['prev_tagl_close']  = '</span>Next</li>';
+	        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+	        $config['first_tagl_close'] = '</span></li>';
+	        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+	        $config['last_tagl_close']  = '</span></li>';
+
+			$this->pagination->initialize($config);
+
+	    	$from=($this->uri->segment(3));
+
+			$data= array(
+				'provinsi'	=>	$this->PartnerModel->semuaProvinsi(),
+				'kabupaten'	=>	$this->PartnerModel->semuaKabupaten(),
+				'nama' => $this->PartnerModel->show_partner_nama($search,$config['per_page'],$from)
+			);
+			$data['pagination'] = $this->pagination->create_links();
+			$this->load->view('antre_bengkel_nama',$data);
+		}
 	}
 
 	

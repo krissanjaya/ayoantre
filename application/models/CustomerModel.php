@@ -4,7 +4,7 @@ class CustomerModel extends CI_Model{
 	function __construct(){
 		parent:: __construct();
 		$this->load->database('ayoantre', TRUE);
-		$this->ayoantre_bengkel = $this->load->database('ayoantre_bengkel', TRUE);
+	
 	}
 
 	function cek_login($username,$password){				
@@ -53,8 +53,9 @@ class CustomerModel extends CI_Model{
 	}
 
 	function semuaAntre($id,$stts){
-		$this->db->select("*");
+		$this->db->select("tb_antrian_ambil.*, tb_partner.*");
 		$this->db->from('tb_antrian_ambil');
+		$this->db->join('tb_partner', 'tb_antrian_ambil.id_partner = tb_partner.id_partner');
 		$this->db->where("id_customer",$id);
 		$this->db->where("antrian_status", $stts);
 		$result = $this->db->get();
@@ -73,6 +74,11 @@ class CustomerModel extends CI_Model{
 			return $result->result();
 		else
 			return 'empty';
+	}
+
+	function insertAntre($data){
+		$this->db->insert('tb_antrian_ambil', $data);
+		return $this->db->insert_id();
 	}
 
 	
